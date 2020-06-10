@@ -1,6 +1,7 @@
 package br.com.tokiomarine.seguradora.avaliacao.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -35,7 +36,18 @@ public class EstudanteServiceImpl implements EstudandeService {
 
 	@Override
 	public Estudante buscarEstudante(long id) {
-		throw new IllegalArgumentException("Identificador inválido:" + id);
+		Optional<Estudante> estudante = repository.findById(id);
+		if (!estudante.isPresent()) {
+			throw new IllegalArgumentException("Identificador inválido:" + id);
+		}
+		return estudante.get();
+	
+	}
+	
+	@Override
+	public void removerEstudante(Estudante estudante) {
+		repository.delete(estudante);
+	
 	}
 
 }

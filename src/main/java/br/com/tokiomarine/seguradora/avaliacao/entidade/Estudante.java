@@ -4,28 +4,22 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Estudante {
-	// TODO Implementar a entidade Estudante conforme solicitado
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
     private String nome;
     
-    @NotBlank
     private String email;
     
     private Long telefone;
     
-    @NotBlank
     private Long matricula;
     
-    @NotBlank
     private String curso;
 
 	public Long getId() {
